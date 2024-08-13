@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Aug 12 18:47:47 IST 2024","Mon Aug 12 18:47:48 IST 2024","452","test","test_login","","","","test_password_validation[chromium]","Checking validation for password shorter than format"
+"passed","Mon Aug 12 18:47:45 IST 2024","Mon Aug 12 18:47:47 IST 2024","2794","test","test_login","","","","test_email_validation[chromium]","Checking validation messages for invalid password field."
+"passed","Mon Aug 12 18:47:48 IST 2024","Mon Aug 12 18:47:48 IST 2024","290","test","test_login","","","","test_empty_form_validation[chromium]","Submit empty login form and test for validation messages"
+"failed","Mon Aug 12 18:47:48 IST 2024","Mon Aug 12 18:47:49 IST 2024","456","test","test_login","","","","test_login[chromium]","Login with valid credentials"

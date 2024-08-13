@@ -1,0 +1,37 @@
+name: Parakeet Test
+
+on:
+     push:
+         branches: [main]
+#    pull_request:
+#        branches: [tests]
+
+# required field
+jobs:
+    build:
+        runs-on: ubuntu-latest   # self-hosted/ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Install plugin
+              run: pip install pytest-github-actions-annotate-failures
+
+            # Wrangler
+            - name: install npm and wrangler
+              run: |
+                sudo apt-get install npm
+                npm install wrangler --save-dev
+                npx wrangler -v
+
+            - name: Publish created pages
+              run: CLOUDFLARE_ACCOUNT_ID=${{ secrets.CLOUDFLARE_ACCOUNT_ID }} npx wrangler pages deploy generated/ --project-name=test-report-gen
+
+#            - name: Publish
+#              uses: cloudflare/pages-action@v1
+#              with:
+#                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+#                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+#                  projectName: YOUR_PROJECT_NAME # e.g. 'my-project'
+#                  directory: generated # e.g. 'dist'
+#                  gitHubToken: ${{ secrets.GITHUB_TOKEN }}
